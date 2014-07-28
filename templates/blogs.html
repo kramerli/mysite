@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-10">
+        {% if blog_list %} {% for b in blog_list %}
+        <h3>
+            {{ b.title }}
+        </h3>
+        <p>
+            <em>
+                {% for c in b.clist %} {{c}} {% endfor %}
+            </em>
+        </p>
+        <p>
+            <em>
+                write at: {{ b.timestamp }}
+            </em>
+        </p>
+        {{ b.body|safe }} {% endfor %} {% endif %}
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+<h1 >{{ blog_item.title }}</h1>
+
+<p>
+    <em>
+    Category: 
+    {% for c in blog_item.clist %}
+        {{c}}	
+    {% endfor %}
+    </em>
+</p>
+<p><em>write at: {{blog_item.timestamp}}</em></p>
+
+<hr />
+
+<body>
+    <strong>
+    {{ blog_item.body }}
+    <strong/>
+<body/>
