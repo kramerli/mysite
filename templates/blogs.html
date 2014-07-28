@@ -2,7 +2,9 @@
     <div class="col-md-10">
         {% if blog_list %} {% for b in blog_list %}
         <h3>
+            <a href="/blog/{{b.title}}/" >
             {{ b.title }}
+            </a>
         </h3>
         <p>
             <em>

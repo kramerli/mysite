@@ -51,8 +51,12 @@ def return_blog(num=None,t=None,ca=None):
 
 def start(request,**karg):
 	if karg != {}:
-		if karg['ca']!= None:
+		if karg.has_key('ca') and karg['ca']!= None:
 			return render_to_response('index.html',{'category_dict':return_categorie_dict(),'blog_list':return_blog(ca=karg['ca'])})
+		if karg.has_key('t') and karg['t']!= None:
+			print karg['t']
+			print return_blog(t=karg['t'])
+			return render_to_response('blog_item.html',{'blog_item':return_blog(t=karg['t'])})
 	else:
 		return render_to_response('index.html',{'category_dict':return_categorie_dict(),'blog_list':return_blog()})
 def start_about(request):

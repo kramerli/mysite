@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <html lang="en">
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js">
+        </script>
+        <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js">
+        </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>
+                    My Site
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <img src="http://fanr.me/wp-content/themes/twentyeleven/images/headers/trolley.jpg"
+                class="img-responsive" alt="Responsive image">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">
+                            Welcome
+                        </a>
+                    </div>
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Blog
+                                    <b class="caret">
+                                    </b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    {% if category_dict %} {% for category,count in category_dict.items %}
+                                    <li class="divider">
+                                    </li>
+                                    <li>
+                                        <a href="/blog/category/{{category}}/">
+                                            {{category}} ({{count}})
+                                        </a>
+                                    </li>
+                                    {% endfor %} {% endif %}
+                                </ul>
+                            </li>
+                            <li class="active">
+                                <a href="/about/">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Not Used Yet
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+	{% include "blogs.html" %}
+	{% block category_index %}{% endblock %}
+    </div>
+</body>
+
+</html>
