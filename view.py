@@ -4,11 +4,6 @@ from blog.models import *
 
 
 
-#show_all_blogs(request)
-#return_categories(request)
-#return_by_category(request,c)
-#show_by_title(request,t)
-
 def return_categorie_dict():
 	category_list=Category.objects.all()
 	category_dcit={}
@@ -52,15 +47,16 @@ def return_blog(num=None,t=None,ca=None):
 def start(request,**karg):
 	if karg != {}:
 		if karg.has_key('ca') and karg['ca']!= None:
-			return render_to_response('index.html',{'category_dict':return_categorie_dict(),'blog_list':return_blog(ca=karg['ca'])})
+			return render_to_response('blogs.html',{'category_dict':return_categorie_dict(),'blog_list':return_blog(ca=karg['ca'])})
 		if karg.has_key('t') and karg['t']!= None:
 			print karg['t']
 			print return_blog(t=karg['t'])
-			return render_to_response('blog_item.html',{'blog_item':return_blog(t=karg['t'])})
+			return_dict={'blog_item':return_blog(t=karg['t']),'category_dict':return_categorie_dict()}
+			return render_to_response('blog_item.html',return_dict)
 	else:
-		return render_to_response('index.html',{'category_dict':return_categorie_dict(),'blog_list':return_blog()})
+		return render_to_response('blogs.html',{'category_dict':return_categorie_dict(),'blog_list':return_blog()})
 def start_about(request):
-	return render_to_response('about.html',{'nothing':'nothing'})
+	return render_to_response('about.html',{'category_dict':return_categorie_dict()})
 def blog_page(request):
 	return render_to_response('blog_item.html',{'blog_item':return_blog(t='b3')})
 

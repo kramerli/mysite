@@ -26,8 +26,8 @@
             <div class="col-md-10">
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">
-                            Welcome
+                        <a class="navbar-brand" href="/">
+                            Home page
                         </a>
                     </div>
                     <div>
@@ -65,8 +65,9 @@
                 </nav>
             </div>
         </div>
-	{% include "blogs.html" %}
-	{% block category_index %}{% endblock %}
+        {% block about %}{% endblock %}
+	{% block blogitem %}{% endblock %}
+	{% block blogs %}{% endblock %}
     </div>
 </body>
 
