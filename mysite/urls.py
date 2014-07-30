@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     url(r'^blog/category/(?P<ca>.*)/$',view.start),
     url(r'^blog/(?P<t>.*)/$',view.start),
     url(r'^blog1/$',view.blog_page),
+    url(r'^pic/$',view.my_image),
     url(r'^test/$',view.test),
 )

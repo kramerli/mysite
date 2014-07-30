@@ -27,6 +27,4 @@
             <body/>
         </div>
     </div>
-{% include 'comment.html'%}
 	{% endblock %}
-

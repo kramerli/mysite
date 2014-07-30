@@ -1,0 +1,14 @@
+    <div class="row">
+        <div class="col-md-12 ">
+
+            <body>
+				{% if commentList %}
+					{% for c in  commentList %}
+						<p><strong>{{c.user}} write at {{c.timestamp}}</strong></p>
+						{{c.content}}
+						<hr />
+					{% endfor %}
+				{% endif %}
+            <body/>
+        </div>
+    </div>

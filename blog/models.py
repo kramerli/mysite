@@ -14,4 +14,11 @@ class BlogPost(models.Model):
 	category=models.ManyToManyField(Category)
 	def __unicode__(self):
 		return self.title
-
+class Comment(models.Model):
+	user=models.CharField(max_length=150)
+	email=models.CharField(max_length=150)
+	content=models.TextField()
+	timestamp=models.DateTimeField()
+	blog=models.ForeignKey(BlogPost)
+	def __unicode__(self):
+		return self.content
