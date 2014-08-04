@@ -1,17 +1,26 @@
-    <div class="row">
-        <div class="col-md-12 ">
-            <body>
-			<h1> Comment area </h1>
-                                {% if commentList %}
-                                        {% for c in  commentList %}
-												<p>
-												<em>{{c.user}}</em> write at <em>{{c.timestamp}} </em> :
-                                                </p>
-												{{c.content}}
-												<hr />
-                                        {% endfor %}
-                                {% endif %}
+<div class="row">
+    <div class="col-md-12 ">
+        <body>
+            <h3>
+                Comment area
+            </h3>
+            {% if commentList %} 
+				{% for c in commentList %}
+					<p> <em>{{c.user}}</em> write at <em> {{c.timestamp}} </em> : </p>
+					{{c.content}}
+					<hr />
+				{% endfor %} 
+			{% endif %}
             <body/>
-        </div>
     </div>
-
+</div>
+<div class="row">
+    <div class="col-md-12 ">
+        <body>
+			<form action="" method="post">
+			<table> {{ form.as_table }} </table>
+			<input type="submit" value="Submit">
+			</form>
+        <body/>
+    </div>
+</div>
